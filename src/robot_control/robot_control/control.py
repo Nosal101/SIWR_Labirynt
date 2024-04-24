@@ -41,21 +41,21 @@ class s_data(Node):
         
         self.cmd_vel_pub.publish(msg)
 
-    def run_forward(self, vel=0.1):
+    def run_forward(self, vel=0.3):
         msg = Twist()
         msg.angular.z = 0.0
         msg.linear.x = vel
         
         self.cmd_vel_pub.publish(msg)
 
-    def turn_left(self, vel = 0.1, ang_vel = 0.5):
+    def turn_left(self, vel = 0.0, ang_vel = 0.3):
         msg = Twist()
         msg.angular.z = ang_vel
         msg.linear.x = vel
         
         self.cmd_vel_pub.publish(msg)
 
-    def turn_right(self, vel = 0.1, ang_vel = .5):
+    def turn_right(self, vel = 0.0, ang_vel = .3):
         msg = Twist()
         msg.angular.z = -ang_vel
         msg.linear.x = vel
@@ -73,12 +73,31 @@ class s_data(Node):
     def imu_callback(self, data):
         self.imu = data
         self.new_imu = True
+        
 
     def process(self):
         if self.new_scan and self.new_odom and self.new_imu: 
+            print("Available commands:")
+            print("1: Forward")
+            print("2: Turn left")
+            print("3: Turn right")
+            print("4: Stop")
+            
+            cmd = input("Enter command: ")
+            
+            if cmd == '1':
+                self.run_forward()
+            elif cmd == '2':
+                self.turn_left()
+            elif cmd == '3':
+                self.turn_right()
+            elif cmd == '4':
+                self.stop()
+            
             self.new_scan = False
             self.new_odom = False
             self.new_imu = False
+
         
 
 
