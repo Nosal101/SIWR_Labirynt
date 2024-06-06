@@ -17,4 +17,4 @@ Below are the instructions on how to run the different components of this projec
 
 Here is an example of the expected result after running the above commands:
 
-![Robot Simulation](photos/image1.png)
+![Robot Simulation](image1.png)
