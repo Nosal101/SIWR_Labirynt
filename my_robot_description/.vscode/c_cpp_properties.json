@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/krzysztof/ros2_ws/install/ur_calibration/include/**",
+        "/home/krzysztof/ros2_ws/install/ur_robot_driver/include/**",
+        "/home/krzysztof/ros2_ws/install/ur_controllers/include/**",
+        "/home/krzysztof/ros2_ws/install/ur_dashboard_msgs/include/**",
+        "/home/krzysztof/ros2_ws/install/pcl_ros/include/**",
+        "/home/krzysztof/ros2_ws/install/pcl_conversions/include/**",
+        "/home/krzysztof/ros2_ws/install/pcl_msgs/include/**",
+        "/home/krzysztof/ros2_ws/install/octomap_msgs/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/krzysztof/ros2_ws/src/Universal_Robots_ROS2_Driver/ur_calibration/include/**",
+        "/home/krzysztof/ros2_ws/src/Universal_Robots_ROS2_Driver/ur_controllers/include/**",
+        "/home/krzysztof/ros2_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver/include/**",
+        "/home/krzysztof/ros2_ws/src/octomap_msgs/include/**",
+        "/home/krzysztof/ros2_ws/src/octomap_server2/include/**",
+        "/home/krzysztof/ros2_ws/src/perception_pcl/pcl_conversions/include/**",
+        "/home/krzysztof/ros2_ws/src/perception_pcl/pcl_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

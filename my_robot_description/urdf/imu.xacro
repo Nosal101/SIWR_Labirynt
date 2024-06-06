@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="imu_length" value="0.01"></xacro:property>
+    <xacro:property name="imu_width" value="0.1"></xacro:property>
+    <xacro:property name="imu_height" value="0.05"></xacro:property>
+
+    <link name="imu_link">
+        <visual>
+            <geometry>
+                <box size="${imu_length} ${imu_width} ${imu_height}"/>
+            </geometry>
+            <material name="grey">
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${imu_length} ${imu_width} ${imu_height}"/>
+            </geometry>
+        </collision>
+        <xacro:box_inertia m="0.1" l="${imu_length}" w="${imu_width}" h="${imu_height}"
+                           xyz="0 0 0" rpy="0 0 0"></xacro:box_inertia>
+    </link>
+
+    <joint name="base_imu_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="imu_link"/>
+        <origin xyz="${2* imu_width} 0 ${base_height}" rpy="0 ${pi/2} 0" />
+    </joint>
+
+    <gazebo reference="imu_link">
+        <material>Gazebo/Red</material>
+        <sensor name="my_imu" type="imu">
+            <always_on>true</always_on>
+            <update_rate>100</update_rate>
+            <plugin name="imu_link" filename="libgazebo_ros_imu_sensor.so">
+                <ros>
+                  <!-- <namespace>/tb3</namespace> -->
+                  <remapping>~/out:=imu</remapping>
+                </ros>
+              </plugin>
+          </sensor>
+      </gazebo>
+
+</robot>
